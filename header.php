@@ -27,28 +27,35 @@
 <div id="page" class="hfeed site">
 	<?php do_action( 'storefront_before_header' ); ?>
 
-	<header id="masthead" class="site-header" role="banner" style="<?php storefront_header_styles(); ?>">
+	<header id="masthead" class="site-header">
+		
+        <nav id="site-navigation" class="main-navigation">
+        <div class="site-branding">
+            <?php
+            the_custom_logo();
+            ?>
+        </div><!-- .site-branding -->
+            <button class="menu-toggle" aria-controls="secondary-menu" aria-expanded="false"><?php esc_html_e( 'Secondary Menu', 'open-3' ); ?></button>
+            <?php
+            wp_nav_menu(
+                array(
+                    'theme_location' => 'menu-2',
+                    'menu_id'        => 'secondary-menu',
+                )
+            );
+            ?>
+        </nav>
+		<div class="header">
 
-		<?php
-		/**
-		 * Functions hooked into storefront_header action
-		 *
-		 * @hooked storefront_header_container                 - 0
-		 * @hooked storefront_skip_links                       - 5
-		 * @hooked storefront_social_icons                     - 10
-		 * @hooked storefront_site_branding                    - 20
-		 * @hooked storefront_secondary_navigation             - 30
-		 * @hooked storefront_product_search                   - 40
-		 * @hooked storefront_header_container_close           - 41
-		 * @hooked storefront_primary_navigation_wrapper       - 42
-		 * @hooked storefront_primary_navigation               - 50
-		 * @hooked storefront_header_cart                      - 60
-		 * @hooked storefront_primary_navigation_wrapper_close - 68
-		 */
-		do_action( 'storefront_header' );
-		?>
+    
+<div class="logos">
 
-	</header><!-- #masthead -->
+<img src="<?php echo get_template_directory_uri(); ?>/img/Groupe47.png" alt="">
+<img src="<?php echo get_template_directory_uri(); ?>/img/cart-solid-240.png" alt="">
+<img src="<?php echo get_template_directory_uri(); ?>/img/user-solid-240.png" alt="">
+</div>
+</div><!-- #site-navigation -->
+    </header><!-- #masthead --><!-- #masthead -->
 
 	<?php
 	/**
